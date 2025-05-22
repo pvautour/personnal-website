@@ -1,0 +1,22 @@
+if you are getting the following error:
+
+```BASH
+SSL validation failed for https://cloudformation.ca-central-1.amazonaws.com/ [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)
+```
+
+You need to add your organisations certificate to your aws config.
+
+To do so, export it as crt and add it's path to `.aws/config` with the `ca_bundle` variable:
+
+```config
+[default]
+output=table
+region=ca-central-1
+ca_bundle=/path/to/<your-certificate>.crt
+```
+
+## For those on windows
+
+This was affecting me using WSL with aws cli v2. 
+
+On windows, you can find your company certificate and export it using `certmgr.msc`. 
