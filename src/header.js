@@ -4,7 +4,11 @@ class SiteHeader extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `
       <header style="background:#222;color:#fff;padding:1rem;text-align:center;">
-        <h2>My Website Header</h2>
+ <nav>
+  <a href="/">Home</a> |
+  <a href="/blog/tech-tips">Tech Tips</a> |
+  <a href="https://www.linkedin.com/in/pascal-vautour-19a30196/">LinkedIn</a>
+</nav> 
       </header>
     `;
   }
