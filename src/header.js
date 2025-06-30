@@ -3,7 +3,7 @@ class SiteHeader extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `
-      <header style="background:#222;color:#fff;padding:1rem;text-align:center;">
+      <header style="text-align:center;">
  <nav>
   <a href="/">Home</a> |
   <a href="/blog/tech-tips">Tech Tips</a> |
