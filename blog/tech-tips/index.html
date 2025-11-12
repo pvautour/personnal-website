@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script type="text/javascript" src="https://livejs.com/live.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minimal Web Components Site</title>
+  <script type="module" src="/src/header.js"></script>
+  <script type="module" src="/src/footer.js"></script>
+  <script type="module" src="/lib/hljs.js"></script>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+  <site-header></site-header>
+
+  <hljs></hljs>
+  <main class="container">
+    <div>
+      <h1>Tech Tips</h1>
+      <p>Here is a collection of notes from my troubleshooting journeys.</p>
+      <p>Hopefully they can be of use to you.</p>
+    </div>
+    <div>
+      <ul>
+        <li>
+          <a href="/blog/tech-tips/1.html">How to Fix SSL Validation errors from AWS Cli</a>
+        </li>
+        <li>
+          <a href="/blog/tech-tips/2.html">Home Manager Config not Applied</a>
+        </li>
+        <li>
+          <a href="/blog/tech-tips/3.html">Hyprland Crashes on Startup</a>
+        </li>
+        <li>
+          <a href="/blog/tech-tips/4.html">Hyprland Half Framerate</a>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+
+  <site-footer></site-footer>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+<h1 id="hyprland-half-framerate-md">hyprland-half-framerate.md</h1>
+<p>I had an issue in Hyprland where my framerate seemed to be about half what my external monitor supports on NixOs.</p>
+<p>This was on a laptop with an nvidia gpu, specifically an Asus Zephyrus g15 (ga503). </p>
+<p>To fix it, I had to disable <code>double frame protection</code> in my <code>hyprland.conf</code>.</p>
+<p>Here is the relevant snippet:</p>
+<pre><code class="lang-Hyprland.conf"><span class="hljs-section">opengl</span> {
+    <span class="hljs-attribute">nvidia_anti_flicker</span> = <span class="hljs-literal">false</span>
+    }
+  </code></pre>
+<p>I hope this comes in handy.</p>
