@@ -17,38 +17,37 @@
 
   <hljs></hljs>
   <main class="container">
-    <h1>fix-ssl-validation-aws-cli.md</h1>
-    <pre><code><span class="hljs-keyword">if</span> you are getting the following <span
-          class="hljs-literal">error</span>:
+    <div>
+      <h1>How to Fix SSL Validation errors from AWS Cli</h1>
+      <p>if you are getting the following error:</p>
+      <pre>
+        <code class="lang-BASH">
+          SSL validation failed <span class="hljs-keyword">for</span> <span class="hljs-symbol">https:</span>/<span
+            class="hljs-regexp">/cloudformation.ca-central-1.amazonaws.com/</span>
+          [<span class="hljs-symbol">SSL:</span> CERTIFICATE_VERIFY_FAILED] certificate verify <span
+            class="hljs-symbol">failed:</span> <span class="hljs-keyword">self</span>-signed certificate <span
+            class="hljs-keyword">in</span> certificate chain (_ssl.<span class="hljs-symbol">c:</span><span
+            class="hljs-number">1010</span>)
+        </code>
+      </pre>
+      <p>You need to add your organisations certificate to your aws config.</p>
+      <p>To do so, export it as crt and add it&#39;s path to <code>.aws/config</code> with the <code>ca_bundle</code>
+        variable:</p>
+      <pre>
+        <code class="lang-config">
+          <span class="hljs-section">[default]</span>
+          <span class="hljs-attr">output</span>=table
+          <span class="hljs-attr">region</span>=ca-central-<span class="hljs-number">1</span>
+          <span class="hljs-attr">ca_bundle</span>=/path/to/&lt;your-certificate&gt;.crt
+        </code>
+      </pre>
+    </div>
+    <div>
+      <h2 id="for-those-on-windows">Note for the Windows Users</h2>
+      <p>This was affecting me using WSL with aws cli v2. </p>
+      <p>On windows, you can find your company certificate and export it using <code>certmgr.msc</code>. </p>
+    </div>
 
-        ```BASH
-        SSL validation failed <span class="hljs-keyword">for</span> https://cloudformation.ca-central-<span
-          class="hljs-number">1</span>.amazonaws.com/ [SSL: CERTIFICATE_VERIFY_FAILED]
-        certificate verify failed: self-<span class="hljs-built_in">signed</span> certificate <span
-          class="hljs-keyword">in</span> certificate chain (_ssl.c:<span class="hljs-number">1010</span>)
-        ```
-
-        You need <span class="hljs-keyword">to</span> add your organisations certificate <span
-          class="hljs-keyword">to</span> your aws config.
-
-        <span class="hljs-keyword">To</span> do so, export it as crt <span class="hljs-keyword">and</span> add it<span
-          class="hljs-symbol">'s</span> path <span class="hljs-keyword">to</span> `.aws/config` <span
-          class="hljs-keyword">with</span> the `ca_bundle` <span class="hljs-keyword">variable</span>:
-
-        ```config
-        [<span class="hljs-keyword">default</span>]
-        output=table
-        region=ca-central-<span class="hljs-number">1</span>
-        ca_bundle=/path/<span class="hljs-keyword">to</span>/&lt;your-certificate&gt;.crt
-        ```
-
-        ## <span class="hljs-keyword">For</span> those <span class="hljs-keyword">on</span> windows
-
-        This was affecting me using WSL <span class="hljs-keyword">with</span> aws cli v2.
-
-        <span class="hljs-keyword">On</span> windows, you can find your company certificate <span
-          class="hljs-keyword">and</span> export it using `certmgr.msc`.
-      </code></pre>
   </main>
 
 
